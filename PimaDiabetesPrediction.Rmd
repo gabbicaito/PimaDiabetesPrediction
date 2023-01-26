@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 ---
-title: "Pima Diabetes Prediction"
+title: "Diabetes Prediction"
 author: "Gabbi Caito"
 date: "Updated `r Sys.Date()`"
 output:
@@ -13,9 +12,6 @@ output:
     code_download: yes
 subtitle: 'Pima Indians'
 ---
-=======
-# Pima Diabetes Prediction
->>>>>>> d928656db9dd91e347e44d341cf676d4a4c19e6c
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
