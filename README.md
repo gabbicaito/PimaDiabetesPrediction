@@ -27,6 +27,8 @@ Variable|Description
 `age`|	Age (years)
 `diabetes`|	Class variable (test for diabetes)
 
+## Exploratory Analysis
+
 I will build two machine learning models to classify patients as positive or negative for diabetes, and compare their performance.
 
 First, I will build a testing and training data set using a 70-30 split.
@@ -50,6 +52,8 @@ train %>% ggplot(aes(x=glucose, y=pressure)) +
 ```
 
 Based on the plot, glucose and blood pressure may be useful input variables. Higher glucose levels tend to correspond to more positive diabetes tests, while lower glucose levels tend to correspond to more negative diabetes tests. This indicates that high glucose lvels may be correlated with diabetes. The blood pressures of patients who tested positive for diabetes occupy a wide range, while the blood pressures of patients who tested negative for diabetes are more concentrated, leading me to believe that it is possible that abnormal (higher or lower than average) blood pressures may be correlated with diabetes. 
+
+## Logistic Regression 
 
 Now, I will use the training data to build a logistic regression model. I am choosing to build a logistic regression model because my goal is to predict a categorical dependent variable.
 
@@ -76,6 +80,8 @@ confusionMatrix(data=predict(model, test), reference=test$diabetes)
 
 The confusion matrix tells me that the model's true negative rate is 56.09%, found by dividing the 129 observations that were predicted to be negative and were actually negative by the 230 total observations in the testing data set. In context, this means that this model would predict that 56.09% of patients without diabetes do not have diabetes. It also tells me that the true positive rate is 21.3%, found by diving the 49 observations that were predicted to be positive and were actually positive by the 230 total observations in the testing data set. In context, this means that this model would "diagnose" 21.3% of diabetic patients as diabetic. In other words, if this model took the place of a doctor, it would only "recommend" diabetes care to 21.3% of patients who actually had diabetes, which is rather startling! 
 
+## Naive Bayes Classification
+
 Now, I will use the training data to build a naive Bayes classification model. This model works by assuming that all of the predictor variables are independent.
 
 ```{r}
@@ -99,6 +105,8 @@ confusionMatrix(data=predict(model_nb, test), reference=test$diabetes)
 ```
 
 The true negative rate is 52.2%, found by dividing the 120 observations that were predicted to be negative and were actually negative by the 230 total observations in the testing data set. The true positive rate is 22.2%, found by dividing the 51 observations that were predicted to be positive and were actually positive by the 230 observations in the testing data set. 
+
+## Summary
 
 Both of the models I considered were extremely similar in their accuracy, so I wouldn't say that either one is terribly better than the other. With that being said, if I had to choose the "best" model for this scenario I would choose the naive Bayes model. I say this because it has a slightly higher true positive rate, which means that it would be slightly better than the logistic regression model at letting people who have diabetes know that they have diabetes so that they can get treatment.
 
