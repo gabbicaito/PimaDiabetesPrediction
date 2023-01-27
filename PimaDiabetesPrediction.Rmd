@@ -1,5 +1,5 @@
 ---
-title: "Diabetes Prediction"
+title: "Pima Diabetes Prediction"
 author: "Gabbi Caito"
 date: "Updated `r Sys.Date()`"
 output:
@@ -10,7 +10,7 @@ output:
     toc_float: yes
     theme: cosmo
     code_download: yes
-subtitle: 'Pima Indians'
+subtitle: 'Creighton University Machine Learning Coursework'
 ---
 
 ```{r, include=FALSE}
